@@ -5,8 +5,8 @@
  Seamless Pattern
  by: Edwin Zaniar Putra (zaniar@nightspade.com)
 
+ This code is MIT licensed, see http://www.opensource.org/licenses/mit-license.php
  Copyright © 2012 Nightspade (http://nightspade.com).
- All Rights Reserved.
  
 --]]
 
