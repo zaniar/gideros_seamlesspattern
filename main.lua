@@ -1,2 +1,5 @@
-local bg = SeamlessPattern.new("res/pattern.png", .3, .3)
+local bg = SeamlessPattern.new("res/pattern.png", {
+	speedX = .3,
+	speedY = .3
+})
 stage:addChild(bg)
