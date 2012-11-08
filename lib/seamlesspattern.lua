@@ -4,6 +4,7 @@
  
  Seamless Pattern
  by: Edwin Zaniar Putra (zaniar@nightspade.com)
+ Version: 2012.09.0
 
  This code is MIT licensed, see http://www.opensource.org/licenses/mit-license.php
  Copyright © 2012 Nightspade (http://nightspade.com).
@@ -36,13 +37,8 @@ function SeamlessPattern:init(path, properties)
 	if self.properties.m21 ~= nil then self.matrix:setM21(self.properties.m21) end
 	if self.properties.m22 ~= nil then self.matrix:setM22(self.properties.m22) end
 	self.shape = Shape.new()
-	
-	if self.properties.speedX == 0 and self.properties.speedY == 0 then
-		self:draw()
-	else
-		self:addEventListener(Event.ENTER_FRAME, self.draw, self)
-		self:addEventListener(Event.REMOVED_FROM_STAGE, self.removed, self)
-	end
+
+	self:addEventListener(Event.ADDED_TO_STAGE, self.added, self)
 end
 
 function SeamlessPattern:draw(evt)
@@ -63,6 +59,15 @@ function SeamlessPattern:draw(evt)
 	end
 	self:closePath()
 	self:endPath()
+end
+
+function SeamlessPattern:added(evt)
+	if self.properties.speedX == 0 and self.properties.speedY == 0 then
+		self:draw()
+	else
+		self:addEventListener(Event.ENTER_FRAME, self.draw, self)
+		self:addEventListener(Event.REMOVED_FROM_STAGE, self.removed, self)
+	end
 end
 
 function SeamlessPattern:removed(evt)
